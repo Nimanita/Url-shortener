@@ -84,7 +84,7 @@ DATABASES = {
     },
     'HASHES': {
         'HOST': MONGO_HOST,
-        'USERNAME': 'abc12345',
+        'USERNAME': 'abc123',
         'PASSWORD': 'test',
     
         'DATABASE': 'hashes',

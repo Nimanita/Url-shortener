@@ -21,12 +21,12 @@ def shortenedUrlOperation(request):
   
 @api_view(['GET'])
 def originalUrlOperation(request , urlId):
-    response = dict()
     
+    response = dict()
     if request.method == 'GET':
-        result = hashService.redirect_to_original_url(urlId)
-        if not result:
-            response["message"] = "Invalid request"
-            return JsonResponse(response , status = status.HTTP_400_BAD_REQUEST)
-        
+        return hashService.redirect_to_original_url(urlId)
+    
+    response["message"] = "Invalid request"
+    return JsonResponse(response , status = status.HTTP_400_BAD_REQUEST)
+            
     

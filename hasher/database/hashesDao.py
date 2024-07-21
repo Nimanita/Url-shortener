@@ -11,6 +11,7 @@ class hashesDao(MongoConnection):
         return result
     
     def addUrlId(self, urlData , urlId):
+        print("inside add url")
         result = self.collection.update_one(
                 {
                     "urlId" : urlId
@@ -19,7 +20,9 @@ class hashesDao(MongoConnection):
                     "$set" : urlData
                 },
                 upsert = True)
-        
+        cursor = self.collection.find();
+        entries = list(cursor)
+        print(entries)
         return result.acknowledged
     
     def getOriginalUrl(self, urlId):
